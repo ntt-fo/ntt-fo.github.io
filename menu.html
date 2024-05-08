@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Menu - BINGO 3.0</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="main" id="main"><span id="bingo">BINGO</span><br /></div>
+
+        <div id="menu">
+            <a href="bingo2-0.html"
+                ><div id="bingo_rudz">Edition: Rudzki</div></a
+            >
+            <a href="custom.html"><div id="bingo_rudz">Custom</div></a>
+        </div>
+
+        <script></script>
+        <style>
+            html {
+                height: 100%;
+            }
+            body {
+                background: linear-gradient(
+                    160deg,
+                    #333333 0%,
+                    #505050 50%,
+                    #333333 100%
+                );
+                height: 100%;
+                font-family: "Chakra Petch", sans-serif;
+                font-weight: 600;
+                font-style: normal;
+            }
+            #jeden_0 {
+                font-size: 20px;
+            }
+
+            .dark_mode {
+                float: left;
+                width: 40px;
+                height: 25px;
+                border-radius: 5px;
+                border-style: none;
+                background-color: rgba(226, 226, 226, 0.411);
+            }
+            #bingo_rudz {
+                background-color: rgba(0, 0, 0, 0.411);
+                text-align: center;
+                width: 160px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin: auto;
+                font-size: 20px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            a {
+                color: white;
+                text-decoration: none;
+            }
+            #menu {
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                color: white;
+                animation: pop 2.5s;
+                position: relative;
+            }
+            #bingo {
+                font-size: 80px;
+                text-align: center;
+                position: relative;
+            }
+            .main {
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                color: white;
+                animation: pop 2.5s;
+                position: relative;
+                top: -20px;
+            }
+            #edition {
+                font-size: 20px;
+                position: relative;
+                top: -18px;
+            }
+
+            #rudzki {
+                text-decoration: line-through;
+            }
+        </style>
+    </body>
+</html>

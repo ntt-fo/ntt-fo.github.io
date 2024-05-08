@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Game - BINGO 3.0</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="main" id="main">
+            <a href="menu.html"
+                ><span id="home"
+                    ><img
+                        src="https://cdn-icons-png.flaticon.com/512/25/25694.png"
+                        alt="" /></span
+            ></a>
+            <span id="bingo">BINGO<span id="jeden_0">3.0</span></span> <br />
+            <span id="edition"
+                >Edition: Custom</span>
+        </div>
+
+        <form id="insert_data" onsubmit="return false">
+            <fieldset id="fieldset_customy">
+                <legend>Insert data (Separate by comma, max 25 words):</legend>
+                <br /><textarea rows="20" cols="60" id="customy_data" ></textarea><br />
+            </fieldset>
+                <button onclick="customy()" id="insert_buuton">Insert</button>
+        </form>
+        <div id="gortat">
+            <a href="https://pl.wikipedia.org/wiki/Marcin_Gortat"
+                ><img
+                    src="https://media1.tenor.com/m/fDfjXwepdPIAAAAd/gortat.gif"
+                    alt="lebronjam"
+            /></a>
+            <a href="https://pl.wikipedia.org/wiki/Marcin_Gortat"
+                ><img
+                    src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHpmbmZtNGsyYWozMWdxM3ZubXFocDlxejgxcDdxMmRnZnpsdzVxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/54Gc7YBiXYOe4/giphy.gif"
+                    alt=""
+            /></a>
+            <a href="https://pl.wikipedia.org/wiki/Marcin_Gortat"
+                ><img
+                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnN0OXYzZmNhMGx2d2M3MjI3c3NjdTAwdTY0dmdsbGN5eTNtNHhyNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/46zKgMssrWtV3OLwXP/giphy.gif"
+                    alt=""
+            /></a>
+        </div>
+
+        <div id="rules">
+            <button onclick="rules()" id="button_rules">Zasady</button><br />
+            <div id="rules2"></div>
+        </div>
+        <script>
+            function shuffle(array) {
+                let currentIndex = array.length;
+
+                // While there remain elements to shuffle...
+                while (currentIndex != 0) {
+                    // Pick a remaining element...
+                    let randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    // And swap it with the current element.
+                    [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex],
+                        array[currentIndex],
+                    ];
+                }
+            }
+            var table_text = "<table id='bingo_table'> <tr> <td> <button onclick='turn1(id)' id='but1' class='gold'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but2' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but3' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but4' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but5' class='red'> XXXXX </button> </td> </tr> <tr> <td> <button onclick='turn1(id)' id='but6' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but7' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but8' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but9' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but10' class='red'> XXXXX </button> </td> </tr> <tr> <td> <button onclick='turn1(id)' id='but11' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but12' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but13' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but14' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but15' class='red'> XXXXX </button> </td> </tr> <tr> <td> <button onclick='turn1(id)' id='but16' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but17' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but18' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but19' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but20' class='red'> XXXXX </button> </td> </tr> <tr> <td> <button onclick='turn1(id)' id='but21' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but22' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but23' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but24' class='red'> XXXXX </button> </td> <td> <button onclick='turn1(id)' id='but25' class='red'> XXXXX </button> </td> </tr> </table>";
+
+            function customy() {
+                var customy_data = document.getElementById("customy_data");
+
+                var data_c = customy_data.value.split(",");
+                shuffle(data_c);
+
+                console.log(data_c);
+
+                var space_input = document.getElementById("insert_data");
+
+                space_input.innerHTML = table_text;
+
+                for (let i = 0; i < 25; i++) {
+                document.getElementById("but" + (i + 1)).innerHTML = data_c[i];
+            }
+
+            var class_array = ["gold", "gold"];
+
+            for (let i = 2; i <= 24; i++) {
+                class_array[i] = "red";
+            }
+            shuffle(class_array);
+            for (let i = 0; i < 24; i++) {
+                var element = document.getElementById("but" + (i + 1));
+                element.setAttribute("class", class_array[i]);
+            }
+            }
+
+            function turn1(id) {
+                var element = document.getElementById(id);
+                var currentClass = element.getAttribute("class");
+                if (currentClass == "red") {
+                    element.setAttribute("class", "green");
+                }
+                if (currentClass == "green") {
+                    element.setAttribute("class", "red");
+                }
+            }
+            var mode = false;
+            function rules() {
+                if (mode == false) {
+                    var zasady = document.getElementById("rules2");
+                    zasady.innerHTML = "- Obowiązują normalne zasady bingo<br>";
+                    zasady.innerHTML +=
+                        "- Złote kafelki oznaczają wylosowane pole, którego nie trzeba wypełniać";
+                    zasady.innerHTML += "<h5>UWAGA BINGO NIE ZAPISUJE SIĘ</h5>";
+                    zasady.style.color = "white";
+
+                    var zasady2 = document.getElementById("button_rules");
+                    zasady2.style.color = "white";
+                    zasady2.style.fontSize = "30px";
+                    zasady2.style.left = "-14px";
+
+                    mode = true;
+                } else {
+                    var zasady = document.getElementById("rules2");
+                    zasady.innerHTML = " ";
+                    var zasady2 = document.getElementById("button_rules");
+                    zasady2.style.color = "black";
+                    zasady2.style.fontSize = "15px";
+                    zasady2.style.left = "-0px";
+                    mode = false;
+                }
+            }
+        </script>
+        <style>
+            @keyframes bigger {
+                from {
+                    scale: 100%;
+                }
+                to {
+                    scale: 103%;
+                }
+            }
+            @keyframes pop {
+                0% {
+                    scale: 2%;
+                }
+                98% {
+                    scale: 100.5%;
+                }
+                100% {
+                    scale: 100%;
+                }
+            }
+            @keyframes pop2 {
+                0% {
+                    scale: 2%;
+                }
+                95% {
+                    scale: 100%;
+                    color: black;
+                }
+                100% {
+                    scale: 0%;
+                }
+            }
+            html {
+                height: 100%;
+            }
+            body {
+                background: linear-gradient(
+                    160deg,
+                    #333333 0%,
+                    #505050 50%,
+                    #333333 100%
+                );
+                height: 100%;
+                font-family: "Chakra Petch", sans-serif;
+                font-weight: 600;
+                font-style: normal;
+            }
+            #home {
+                float: left;
+                position: relative;
+                top: 20px;
+            }
+            #home img {
+                width: 32px;
+                height: 30px;
+            }
+            #jeden_0 {
+                font-size: 20px;
+            }
+            #bingo {
+                font-size: 80px;
+                text-align: center;
+                position: relative;
+            }
+            .main {
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                color: white;
+                animation: pop 2.5s;
+                position: relative;
+                top: -20px;
+            }
+            #edition {
+                font-size: 20px;
+                position: relative;
+                top: -18px;
+            }
+            .green {
+                background: linear-gradient(
+                    120deg,
+                    #0cee26 0%,
+                    #0bbc20 50%,
+                    #0cee26 100%
+                );
+            }
+            .red {
+                background: linear-gradient(
+                    120deg,
+                    #c90d0d 0%,
+                    #c90d0ddf 50%,
+                    #c90d0d 100%
+                );
+            }
+            .gold {
+                background: linear-gradient(
+                    120deg,
+                    #daa520 0%,
+                    #edcc78 50%,
+                    #daa520 100%
+                );
+            }
+            button {
+                height: 80px;
+                width: 140px;
+                font-family: "Chakra Petch", sans-serif;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 16px;
+                border-style: groove;
+            }
+            button:hover {
+                animation: bigger 1s;
+            }
+            table {
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                animation: pop 2.5s;
+            }
+            #gortat {
+                align-items: center;
+                text-align: center;
+            }
+            #gortat img {
+                height: 75px;
+                border: 3px solid black;
+                position: relative;
+                animation: pop 2.5s;
+                top: 10px;
+            }
+            #rudzki {
+                text-decoration: line-through;
+            }
+            #rules {
+                text-align: center;
+                position: relative;
+                top: 20px;
+            }
+            #rules button {
+                height: 30px;
+                width: 80px;
+                cursor: help;
+                font-size: 20px;
+                border: none;
+                background-color: #0bbc2000;
+                font-size: 25px;
+                position: relative;
+                top: -10px;
+                font-size: 10px;
+                left: 1px;
+            }
+            #insert_data {
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                color: white;
+            }
+            #insert_buuton
+            {
+                height: 30px;
+                width: 100px;
+                background-color: #ff88004d;
+                border-radius: 5px;
+                border: none;
+            }
+            #insert_buuton:hover
+            {
+                background-color: #ff88009b;
+                animation: none;
+            }
+            #customy_data
+            {
+                background-color: #0000000b;
+                border: none;
+                border-radius: 6px;
+                min-width: 400px;
+                min-height: 250px;
+                max-width: 1200px;
+                max-height: 450px;
+            }
+            #fieldset_customy legend
+            {
+                text-align: left;
+                font-size: 12px;
+            }
+            #fieldset_customy
+            {
+                width: 300px;
+                margin: auto;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+        </style>
+    </body>
+</html>
